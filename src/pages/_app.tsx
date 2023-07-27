@@ -1,6 +1,16 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import { GlobalStyle } from '@styles/GlobalStyle';
+import { lightTheme } from '@styles/theme';
+import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'styled-components';
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  // const { value } = useDarkMode(false);
+  // const theme = value ? darkTheme : lightTheme;
+
+  return (
+    <ThemeProvider theme={lightTheme}>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }
