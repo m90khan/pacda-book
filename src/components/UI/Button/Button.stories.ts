@@ -1,14 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { Button } from './Button';
+import { expect } from '@storybook/jest';
+import { within, userEvent } from '@storybook/testing-library';
+import { Button } from './index';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/NLhz44T62V7xdfhv1aFhZy/Law-Firm-Webflow-Website-Template-(Community)?type=design&node-id=6-5813&mode=design&t=igmi5O8yaFtH1Pse-4',
+    },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
@@ -28,7 +33,19 @@ export const Primary: Story = {
     label: 'Button',
   },
 };
+Primary.play = async ({ args, canvasElement }) => {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('button'));
+  await expect(args.onClick).toHaveBeenCalled();
+};
 
+export const Inaccessible: Story = {
+  args: {
+    label: 'Button',
+    backgroundColor: 'red',
+    color: 'red',
+  },
+};
 export const Secondary: Story = {
   args: {
     label: 'Button',

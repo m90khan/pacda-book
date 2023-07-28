@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css';
+import styles from './button.module.css';
 
 interface ButtonProps {
   /**
@@ -10,6 +10,8 @@ interface ButtonProps {
    * What background color to use
    */
   backgroundColor?: string;
+  color?: string;
+
   /**
    * How large should the button be?
    */
@@ -31,20 +33,26 @@ export const Button = ({
   primary = false,
   size = 'medium',
   backgroundColor,
+  color = 'black',
+  onClick = () => console.log('I am clicked'),
   label,
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      type='button'
+      className={`${styles['storybook-button']}  ${styles[`storybook-button--${size}`]} ${
+        styles[`${mode}`]
+      }`}
       {...props}
+      onClick={onClick}
     >
       {label}
       <style jsx>{`
         button {
           background-color: ${backgroundColor};
+          color: ${color};
         }
       `}</style>
     </button>
