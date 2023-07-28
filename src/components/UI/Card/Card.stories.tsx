@@ -9,7 +9,7 @@ const meta = {
     layout: 'centered',
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/NLhz44T62V7xdfhv1aFhZy/Law-Firm-Webflow-Website-Template-(Community)?type=design&node-id=6-5813&mode=design&t=igmi5O8yaFtH1Pse-4',
+      url: 'https://www.figma.com/file/TXlHlmbFIpKqaNkuHRhThd/Architecture-Webflow-Website-Template-(Community)?type=design&node-id=303-5&mode=design&t=uFJzXChQ2PbBUVnh-4',
     },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs

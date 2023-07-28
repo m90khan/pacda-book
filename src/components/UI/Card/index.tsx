@@ -11,7 +11,7 @@ const Card = ({ key, product }: { key?: number; product: Product }) => (
         objectFit={'cover'}
         fill
         src={product.thumbnail}
-        alt='A screenshot showing the autodocs tag being set, pointing a docs page being generated'
+        // alt='A screenshot showing the autodocs tag being set, pointing a docs page being generated'
       />
     </div>
     <div className='card-content'>
